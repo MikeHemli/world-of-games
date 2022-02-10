@@ -1,13 +1,21 @@
+import sys
+
+import guessGame
+import memoryGame
+
+global difficulty_level
+
+
 def welcome():
     while True:
         print("Enter a username: ", end="")
         name = input()
-        str = f"\nHello {name} and welcome to the World of Games (WoG). Here you can find many cool games to play."
         if name.isalpha():
+            str = f"\nHello {name} and welcome to the World of Games (WoG). Here you can find many cool games to play."
             return str
         else:
-            print("""Your name cannnot contain numbers/marks/symbols
-            and should be not more than one name without a space in between...""")
+            print("""\nYour name cannot contain numbers/marks/symbols
+and should be not more than one name without a space in between...\n""")
 
 
 def load_game():
@@ -18,10 +26,13 @@ def load_game():
               f"    3) Currency Roulette - try and guess the value of a random amount of USD in ILS")
         print("\nNumber: ", end="")
         try:
-            game_num = input()
-            game_num = int(game_num)
-            if game_num < 1 or game_num > 3:
+            game_number = input()
+            game_number = int(game_number)
+            if game_number < 1 or game_number > 3:
                 print("\nYour number is not in range between 1-3!!!")
+            elif game_number == 3:
+                print("\nThe Current Roulette Game is not available at the moment...")
+                sys.exit()
             else:
                 break
         except ValueError:
@@ -30,12 +41,16 @@ def load_game():
     while True:
         print("\nPlease choose game difficulty level between 1-5: ", end="")
         try:
-            dif_level = input()
-            dif_level = int(dif_level)
-            if dif_level < 1 or dif_level > 5:
+            difficulty_level = input()
+            difficulty_level = int(difficulty_level)
+            if difficulty_level < 1 or difficulty_level > 5:
                 print("\nYour number is not in range between 1-5!!!")
             else:
                 break
         except ValueError:
             print("\nYour input is not a integer number!!!")
-    return game_num, dif_level
+    # return game_number, difficulty_level
+    if game_number == 1:
+        memoryGame.play(difficulty_level)
+    else:
+        guessGame.play(difficulty_level)

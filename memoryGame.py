@@ -1,8 +1,7 @@
 from random import randint
-from main import dif
 
 
-def generate_sequence():
+def generate_sequence(dif):
     genList = []
     for i in range(dif):
         num = randint(1, 101)
@@ -10,10 +9,10 @@ def generate_sequence():
     return genList
 
 
-def get_list_from_user():
+def get_list_from_user(dif):
     userGenList = []
     for i in range(dif):
-        print(f"Enter a integer number ({i+1}/{dif}): ", end="")
+        print(f"Enter a integer number ({i + 1}/{dif}): ", end="")
         num = input()
         num = int(num)
         userGenList.append(num)
@@ -28,9 +27,9 @@ def is_list_equal(list1, list2):
     return True
 
 
-def play():
-    generatedList = generate_sequence()
-    userList = get_list_from_user()
+def play(difficulty):
+    generatedList = generate_sequence(difficulty)
+    userList = get_list_from_user(difficulty)
     final_result = is_list_equal(generatedList, userList)
     if not final_result:
         print("You lose... ☹")
@@ -38,6 +37,3 @@ def play():
     else:
         print("You win!!! 😀")
         print(f"The generatedList is: {generatedList}")
-
-
-play()
