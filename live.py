@@ -3,8 +3,6 @@ import sys
 import guessGame
 import memoryGame
 
-global difficulty_level
-
 
 def welcome():
     while True:
@@ -49,8 +47,9 @@ def load_game():
                 break
         except ValueError:
             print("\nYour input is not a integer number!!!")
-    # return game_number, difficulty_level
     if game_number == 1:
-        memoryGame.play(difficulty_level)
+        if_victory = memoryGame.play(difficulty_level)
+        return difficulty_level, if_victory
     else:
-        guessGame.play(difficulty_level)
+        if_victory = guessGame.play(difficulty_level)
+        return difficulty_level, if_victory

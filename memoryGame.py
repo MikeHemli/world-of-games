@@ -34,6 +34,8 @@ def play(difficulty):
     if not final_result:
         print("You lose... ☹")
         print(f"The generatedList is: {generatedList}")
+        return False
     else:
         print("You win!!! 😀")
         print(f"The generatedList is: {generatedList}")
+        return True

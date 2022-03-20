@@ -2,7 +2,7 @@ from random import randint
 
 
 def generate_number(dif):
-    secret_number = randint(0, dif)
+    secret_number = randint(1, dif)
     return secret_number
 
 
@@ -26,6 +26,8 @@ def play(difficulty):
     if not final_result:
         print("You lose... ☹")
         print(f"The random number is: {secret_num}")
+        return False
     else:
         print("You win!!! 😀")
         print(f"The random number is: {secret_num}")
+        return True
