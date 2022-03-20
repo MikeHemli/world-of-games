@@ -22,7 +22,7 @@ def load_game():
               f"    1) Memory Game - a sequence of numbers will appear for one second and you have to guess it back\n"
               f"    2) Guess Game - guess a number and see if you chose like the computer\n"
               f"    3) Currency Roulette - try and guess the value of a random amount of USD in ILS")
-        print("\nNumber: ", end="")
+        print("\nYou selected game number: ", end="")
         try:
             game_number = input()
             game_number = int(game_number)
