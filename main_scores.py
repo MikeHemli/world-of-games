@@ -15,4 +15,4 @@ def score_server():
         return render_template("error.html", ERROR='There was an error while loading this page...')
 
 
-app.run(host="0.0.0.0", port=5001, debug=True)
+app.run(port=5001, debug=True)
