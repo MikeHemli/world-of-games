@@ -11,7 +11,7 @@ chromeOptions.add_argument("--disable-dev-shm-using")
 chromeOptions.add_argument("--disable-extensions")
 chromeOptions.add_argument(r"user-data-dir=.\cookies\\test")
 chromeOptions.headless = True
-chrome_driver = webdriver.Chrome(chrome_options=chromeOptions)
+chrome_driver = webdriver.Chrome(chrome_options=Options)
 
 
 def test_scores_service(url):

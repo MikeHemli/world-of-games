@@ -1,0 +1,12 @@
+FROM python:3
+RUN pip install flask
+WORKDIR /app
+# Copy the current directory contents into the container as /app
+COPY *.py /app/
+COPY scores.txt /app/
+
+# Make port 80 available to the world outside this container
+EXPOSE 5001
+
+# Run app.py when the container launches
+CMD python3 main_scores.py
