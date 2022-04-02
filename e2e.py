@@ -1,4 +1,5 @@
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import time
 import os
@@ -11,14 +12,14 @@ chromeOptions.add_argument("--disable-dev-shm-using")
 chromeOptions.add_argument("--disable-extensions")
 chromeOptions.add_argument(r"user-data-dir=.\cookies\\test")
 chromeOptions.headless = True
-chrome_driver = webdriver.Chrome(chrome_options=Options)
+chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
 
 
 def test_scores_service(url):
     try:
         chrome_driver.get(url)
-        scores = chrome_driver.find_element(By.XPATH, value='//*[@id="score"]').text
-        print(scores)
+        scores = chrome_driver.find_element(
+            By.XPATH, value='//*[@id="score"]').text
         chrome_driver.quit()
         return 1 < int(scores) < 1000
     except Exception as e:
@@ -31,4 +32,5 @@ def main_function():
     return -1
 
 
-print(main_function())
+time.sleep(5)
+print("This is the result: ", main_function())
