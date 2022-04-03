@@ -15,7 +15,8 @@ chromeOptions.headless = True
 # chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
 # chrome_driver = webdriver.Chrome(
 #    chrome_options=chromeOptions, executable_path="/usr/bin/chromedriver")
-chrome_driver = webdriver.Chrome(chrome_options=chromeOptions)
+# chrome_driver = webdriver.Chrome(chrome_options=chromeOptions)
+chrome_driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver')
 
 
 def test_scores_service(url):
