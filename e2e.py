@@ -13,7 +13,8 @@ chromeOptions.add_argument("--disable-extensions")
 chromeOptions.add_argument(r"user-data-dir=.\cookies\\test")
 chromeOptions.headless = True
 # chrome_driver = webdriver.Chrome(ChromeDriverManager().install())
-chrome_driver = webdriver.Chrome('/usr/bin/chromedriver')
+chrome_driver = webdriver.Chrome(chrome_options=Options, executable_path="/usr/bin/chromedriver")
+# browser = webdriver.Chrome(chrome_options=options, executable_path="/usr/local/bin/chromedriver")
 
 
 def test_scores_service(url):
