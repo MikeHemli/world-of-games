@@ -1,4 +1,4 @@
-FROM python:3
+FROM moditamam/selenium:python3
 RUN pip install flask
 RUN pip install selenium
 WORKDIR /app
